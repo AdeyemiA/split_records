@@ -8,4 +8,7 @@ Written in C. Fork the repository and compile by typing `make all` on the comman
 i.e. $make all
 
 
-Run Usage: ./rsplit path/to/file delimiter_in_double_quotes num_of_columns output_file_size_MB output_file_prefix(optional, default is 'x')
+Run Usage: Usage: rsplit [-hqsv?V] [-b SIZE] [-i[HEADER]] [-p PREFIX] [--bytes=SIZE]
+            [--header] [--include-header[=HEADER]] [--prefix=PREFIX] [--quiet]
+            [--silent] [--verbose] [--abort] [--help] [--usage] [--version]
+            pathname-to-input delimiter-in-quotes num-of-columns
