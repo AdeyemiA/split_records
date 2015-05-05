@@ -20,11 +20,11 @@ record across multiple files.
 
  DESCRIPTION 
 
-  -b, --bytes=SIZE           put SIZE bytes per output file. Suffix the number
+  ```-b, --bytes=SIZE           put SIZE bytes per output file. Suffix the number
                              with k, m, or g for scaling. Without scales
                              default to megabytes. Default size   if option
                              omitted is 20MB
-  -h, --header               Input file has a header on the first line
+  ```-h, --header               Input file has a header on the first line
                              (unimplemented). 	If specified and header
                              inclusion is not specified, the header is stripped
                              off the output. 	If specified, the value read
