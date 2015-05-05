@@ -13,12 +13,12 @@ Run Usage: Usage: ./rsplit [-hqsv?V] [-b SIZE] [-i[HEADER]] [-p PREFIX] [--bytes
             [--silent] [--verbose] [--abort] [--help] [--usage] [--version]
             pathname-to-input delimiter-in-quotes num-of-columns
 
-*Usage:* rsplit [OPTION...] pathname-to-input delimiter-in-quotes num-of-columns
+**Usage:** rsplit [OPTION...] pathname-to-input delimiter-in-quotes num-of-columns
 
 Inspired by the deficiency in the split unix utility, which, possibly, splits a
 record across multiple files.
 
- *DESCRIPTION* 
+ **DESCRIPTION** 
 
   ```-b, --bytes=SIZE           put SIZE bytes per output file. Suffix the number
                              with k, m, or g for scaling. Without scales
