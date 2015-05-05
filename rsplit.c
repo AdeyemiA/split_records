@@ -11,7 +11,7 @@ const char *argp_program_bug_address = "<aoa2124@columbia.edu>";
 
 /* Program documentation. */
 static char doc[] =
-  "\nInspired by the inability of the split unix utility, which,\
+  "\nInspired by the deficiency in the split unix utility, which,\
  possibly, splits a record across multiple files.\n\n\
  DESCRIPTION\
  \vSIZE  is  an  integer and optional unit\
@@ -43,7 +43,8 @@ static struct argp_option options[] = {
 	If specified, the value read overrides that passed as an argument to the option \
 	--include-header[=header_line] "},
   {"include-header", 'i', "HEADER",		OPTION_ARG_OPTIONAL, "Include the header from the first line. \
-  Default is excluded. (unimplemented)"},
+  Default is excluded. If this option is specified Without the optional header arg or --header \
+  included option, no header is written to the output files. The number of records excludes the header. "},
   {0,0,0,0, "The following options should be grouped together:" },
   {"abort",    OPT_ABORT, 0, 0, "Abort before showing any output"},
   { 0 }
@@ -193,16 +194,26 @@ int main(int argc, char *argv[])
 	char header_arr[buf_size];
 	memset(header_arr, '\0', buf_size);
 	char *header = header_arr;
-	if (arguments.header_line != NULL) {
+	if (arguments.header_line != NULL && !arguments.has_header) {
 		if (strlen(arguments.header_line) > buf_size) {
-			fprintf(stderr, "%s \n", "Conisder reducing the character length of the header passed");
+			fprintf(stderr, "\n %s \n", "Error: Conisder reducing the character length of the header passed");
+			return -1;
+		}
+		if (count_delim(delim, arguments.header_line) != total_delim) {
+			fprintf(stderr, "\n %s \n", "Error: There's a problem with the supplied header argument has \
+				the incorrect number of delimiters/columns. ");
 			return -1;
 		}
 		strcpy(header, arguments.header_line);
+		char *newline = "\n";
+		strcat(header, newline);
 	}
 
+	if (arguments.header_line == NULL && !arguments.has_header && arguments.include_header)
+		if (arguments.verbose)
+			fprintf(stdout, "\n %s \n", "Info: No header found, but specified include_header. Option ignored. ");
+
 	if (arguments.has_header) {
-		printf("%s\n", "Read header from file : incorrect");
 		if (getline(&header, &buf_size, in_file_stream) < 0) {
 			fprintf(stderr, "%s %s %s \n", strerror(errno), "Unable to read ", in_file);
 			return -1;
