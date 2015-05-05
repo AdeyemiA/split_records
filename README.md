@@ -15,7 +15,7 @@ Run Usage: Usage: ./rsplit [-hqsv?V] [-b SIZE] [-i[HEADER]] [-p PREFIX] [--bytes
 
 Usage: rsplit [OPTION...] pathname-to-input delimiter-in-quotes num-of-columns
 
-Inspired by the inability of the split unix utility, which, possibly, splits a
+Inspired by the deficiency in the split unix utility, which, possibly, splits a
 record across multiple files.
 
  DESCRIPTION 
@@ -31,7 +31,11 @@ record across multiple files.
                              overrides that passed as an argument to the option
                              	--include-header[=header_line] 
   -i, --include-header[=HEADER]   Include the header from the first line.
-                             Default is excluded. (unimplemented)
+                             Default is excluded. If this option is specified
+                             Without the optional header arg or --header
+                             included option, no header is written to the
+                             output files. The number of records excludes the
+                             header. 
   -p, --prefix=PREFIX        Prefix to be applied to Output FILE with suffixes
                              to indicate order of records   x is default
   -q, -s, --quiet, --silent  Don't produce any output
@@ -54,3 +58,5 @@ files. The correct number of records should  be specified, and the correct
 delimiter. In anycase of error,  The records with inconsistent number of
 delimiters, one less of column counts,  will be printed out to standard output
 irrespective of whether the verbose  option is selected.
+
+Report bugs to <aoa2124@columbia.edu>
