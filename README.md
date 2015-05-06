@@ -47,7 +47,7 @@ Written in C. Fork the repository and compile by typing `make` on the command li
 
 *   -?, --help                 
 >*   Give this help list
-*   --usage                G
+*   --usage
 >*   Give a short usage message
 *   -V, --version              
 >*  Print program version
