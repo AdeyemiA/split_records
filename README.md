@@ -38,6 +38,7 @@ Written in C. Fork the repository and compile by typing `make` on the command li
 
 *  -q, -s, --quiet, --silent  
 >*  Don't produce any output
+
 *  -v, --verbose              
 >*  Produce verbose output
 
@@ -45,10 +46,12 @@ Written in C. Fork the repository and compile by typing `make` on the command li
 *   --abort                
 >*   Abort before showing any output
 
-*   -?, --help                 
->*   Give this help list
+*   -?, --help 
+>*      Give this help list
+
 *   --usage
->*   Give a short usage message
+>*      Give a short usage message
+
 *   -V, --version              
 >*  Print program version
 
