@@ -18,17 +18,21 @@ parse_opt (int key, char *arg, struct argp_state *state)
       arguments->verbose = 1;
       break;
     case 'p':
+    	arguments->use_prefix = 1;
       arguments->output_file = arg;
       break;
     case 'b':
     	arguments->size = arg;
       break;
     case 'h':
-    	arguments->has_header = 1;
+    	arguments->inputfile_has_header = 1;
+    	break;
+    case 'c':
+    	arguments->count_record = 1;
     	break;
    	case 'i':
    		if (arg != NULL)
-   			arguments->header_line = arg;
+   			arguments->header_string = arg;
    		arguments->include_header = 1;
    		break;
     case OPT_ABORT:
@@ -141,7 +145,7 @@ int write_record(int fd, const char *line)
 	return num_byte;
 }
 
-void wipe_record(char *buf)
+void wipe_buffer(char *buf)
 {
 	memset(buf, '\0', malloc_usable_size(buf));
 }

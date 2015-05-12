@@ -23,10 +23,15 @@ Written in C. Fork the repository and compile by typing `make` on the command li
 >*  put SIZE bytes per output file. Suffix the number                           with k, m, or g for scaling. Without scales
 >*      default to megabytes. Default size if the option                           omitted is 20MB
 
+*	-c, --count
+>*	Produce only the total number of records in a .cnt file.
+>*	The input file is not split.
+
 *   -h, --header               
 >*      Input file has a header on the first line. If specified and header
 >*        inclusion is not specified, the header is stripped off the output. 	If specified, the value read
 >*        overrides that passed as an argument to the option        --include-header[=header_line]
+>*		  Default is input file has no header.
 
 *   -i, --include-header[=HEADER]   
 >*  Include the header from the first line.          Default is excluded. If this option is specified

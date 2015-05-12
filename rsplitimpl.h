@@ -30,8 +30,8 @@ struct arguments
 {
 	  /* arg[0] - filepath, arg[1] - delimiter, arg[2] - number of columns */
   char *arg[NUM_ARGS];                   
-  int silent, verbose, abort, has_header, include_header;   /* ‘-s’, ‘-v’, ‘--abort’ */
-  char *output_file, *header_line;            /* file arg to ‘--output’ */
+  int silent, verbose, abort, use_prefix, inputfile_has_header, count_record, include_header;   /* ‘-s’, ‘-v’, ‘--abort’ */
+  char *output_file, *header_string;            /* file arg to ‘--output’ */
   char *size;             /* output_file size */
 };
 
@@ -42,7 +42,7 @@ int count_delim(const char *delim, const char *line);
 void exit_program(char *, char *, char *, FILE *);
 int open_out_file(const char *filename);
 int write_record(int fd, const char *line);
-void wipe_record(char *);
+void wipe_buffer(char *);
 int get_next_filename(char *filename, int num_of_suffix);
 int is_subset(const char *super, const char *sub);
 void strip_last_char(char *str);
