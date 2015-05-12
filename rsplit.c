@@ -35,6 +35,7 @@ static struct argp_option options[] = {
   {"prefix",   'p', "PREFIX",  0,
    "Prefix to be applied to Output FILE with suffixes to indicate order of records\
    x is default" },
+  {"count",		'c', 0,			0, "Produce only the total number of records in a .cnt file (unimplemented)"},
   {"bytes",	   'b', "SIZE",		0, "put SIZE bytes per output file. Suffix the number\
   with k, m, or g for scaling. Without scales default to megabytes. Default size\
    if option omitted is 20MB"},
