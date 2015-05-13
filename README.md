@@ -26,6 +26,8 @@ Written in C. Fork the repository and compile by typing `make` on the command li
 *	-c, --count
 >*	Produce only the total number of records in a .cnt file.
 >*	The input file is not split.
+>*	If this is specified, it over-rules the split function and writes the number of records to file.
+>*	The filename will be that specified by the -p option or the default 'x'; with a .cnt extension.
 
 *   -h, --header               
 >*      Input file has a header on the first line. If specified and header
