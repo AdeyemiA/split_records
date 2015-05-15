@@ -27,9 +27,9 @@ LDLIBS = -lm
 # Also note that make assumes that main depends on main.o,
 # so we can omit it if we want to.
 rsplit: rsplit.o rsplitimpl.o
-# main.o depends not only on main.c, but also on myadd.h because
-# main.c includes myadd.h. main.o will get recompiled if either
-# main.c or myadd.h get modified.
+# main.o depends not only on main.c, but also on rsplitimpl.h because
+# main.c includes rsplitimpl.h. main.o will get recompiled if either
+# main.c or rsplitimpl.h get modified.
 #
 # make already knows main.o depends on main.c, so we can omit main.c
 # in the dependency list if we want to.#
@@ -39,7 +39,7 @@ rsplit: rsplit.o rsplitimpl.o
 # $(CC) -c $(CFLAGS) <the-.c-file>
 #
 rsplit.o: rsplit.c rsplitimpl.h
-# And myadd.o depends on myadd.c and myadd.h.
+# And myadd.o depends on rsplitimpl.c and rsplitimpl.h.
 rsplitimpl.o: rsplitimpl.c rsplitimpl.h
 # Always provide the "clean" target that removes intermediate files.
 # What you remove depend on your choice of coding tools
